@@ -1,20 +1,33 @@
 #include "raylib.h"
-#include "grid.hpp"
 #include "simulation.hpp"
+#include <iostream>
 
 int main(void)
 {
     const int screenWidth = 800;
     const int screenHeight = 600;
-    simulation simulation(screenWidth, screenHeight, 10);
-    simulation.set_cell_value(1,0,1);
+    const int cell_size = 10;
+    simulation simulation(screenWidth, screenHeight, cell_size);
+    simulation.set_cell_value(59,1,1);
+    simulation.set_cell_value(1,2,1);
+    simulation.set_cell_value(1,3,1);
 
-    InitWindow(screenWidth, screenHeight, "Basic window");
+    InitWindow(screenWidth, screenHeight, "Game of Life");
 
-    SetTargetFPS(60);
+    SetTargetFPS(5);
 
     while (!WindowShouldClose())
     {
+        if (IsMouseButtonPressed(0))
+        {
+            int row, column;
+            Vector2 mouse_pos = GetMousePosition();
+            row = mouse_pos.y/cell_size;
+            column = mouse_pos.x/cell_size;
+            simulation.toggle_cell(row, column);
+        }
+        std::cout<<simulation.getneighbors(0,1); //first row give one less live neighbor
+        // simulation.update_grid();
 
         BeginDrawing();
 
