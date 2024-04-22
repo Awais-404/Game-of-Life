@@ -28,7 +28,7 @@ int main(void)
             column = mouse_pos.x/cell_size;
             simulation.toggle_cell(row, column);
         }
-        std::cout<<simulation.getneighbors(3,3); //first row gives one less live neighbor
+        // std::cout<<simulation.getneighbors(3,3); //first row gives one less live neighbor
         simulation.update_grid();
 
         BeginDrawing();
