@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "simulation.hpp"
+#include "grid.hpp"
 #include <iostream>
 
 int main(void)
@@ -8,9 +9,9 @@ int main(void)
     const int screenHeight = 600;
     const int cell_size = 10;
     simulation simulation(screenWidth, screenHeight, cell_size);
-    simulation.set_cell_value(59,1,1);
-    simulation.set_cell_value(1,2,1);
-    simulation.set_cell_value(1,3,1);
+    simulation.set_cell_value(2,1,1);
+    simulation.set_cell_value(2,2,1);
+    simulation.set_cell_value(2,3,1);
 
     InitWindow(screenWidth, screenHeight, "Game of Life");
 
@@ -26,7 +27,7 @@ int main(void)
             column = mouse_pos.x/cell_size;
             simulation.toggle_cell(row, column);
         }
-        std::cout<<simulation.getneighbors(0,1); //first row give one less live neighbor
+        std::cout<<simulation.getneighbors(3,3); //first row give one less live neighbor
         // simulation.update_grid();
 
         BeginDrawing();
