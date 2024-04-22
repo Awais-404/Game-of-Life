@@ -42,4 +42,5 @@ void simulation::update_grid()
         
     }
     grid = temp_grid;
+    temp_grid.clear_grid();
 }

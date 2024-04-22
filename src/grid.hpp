@@ -8,13 +8,13 @@ private:
     int rows;
     int columns;
     int cell_size;
-    std::vector<std::vector<int>> cells;
     std::vector<std::pair<int,int>> neighours={
         {-1,-1}, {-1,0}, {-1,1},
         {0,-1},           {0,1},
         {1,-1},   {1,0},  {1,1}
     };
 public:
+    std::vector<std::vector<int>> cells;
     grid(int width, int height, int cell_size)
     : rows(height/cell_size), columns(width/cell_size), cell_size(cell_size), cells(rows, std::vector<int>(columns,0)) {};
     void draw();
@@ -24,4 +24,5 @@ public:
     int get_neighbors(int row, int column);
     int get_rows();
     int get_columns();
+    void clear_grid();
 };

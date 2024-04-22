@@ -55,3 +55,16 @@ int grid::get_columns()
 {
     return columns;
 }
+
+void grid::clear_grid()
+{
+    for (int row = 0; row < rows; row++)
+    {
+        for (int column = 0; column < columns; column++)
+        {
+            cells[row][column] = 0;
+        }
+        
+    }
+    
+}
