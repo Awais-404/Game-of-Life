@@ -32,15 +32,10 @@ void grid::toggle_cell(int row, int column)
 int grid::get_neighbors(int row, int column)
 {
     int live_neighbors = 0;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 8; i++)
     {
         int newrow = (row + neighours[i].first + rows) % rows;
         int newcolumn = (column + neighours[i].second + columns) % columns;
-        // if (cells[newrow][newcolumn]==1)
-        // {
-        //     live_neighbors++;
-        // }
-        
         live_neighbors += cells[newrow][newcolumn];
     }
     return live_neighbors;

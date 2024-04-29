@@ -24,19 +24,8 @@ void simulation::update_grid()
         {
             int live_neighbors = grid.get_neighbors(row, column);
             int cell_value = grid.get_value(row, column);
-
-            if (cell_value == 1)
-            {
-                if ( live_neighbors==3 || live_neighbors==2)
-                {
-                    temp_grid.set_value(row, column, 1);
-                }
-                else{
-                    temp_grid.set_value(row, column, 0);
-                }
-                
-            }
-            else
+            
+            if(cell_value == 0)
             {
                 if (live_neighbors == 3)
                 {
@@ -48,7 +37,17 @@ void simulation::update_grid()
                 }
                 
             }
-            
+            else if (cell_value == 1)
+            {
+                if ( live_neighbors==3 || live_neighbors==2)
+                {
+                    temp_grid.set_value(row, column, 1);
+                }
+                else{
+                    temp_grid.set_value(row, column, 0);
+                }
+                
+            }
         }
         
     }
